@@ -1,0 +1,88 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('Basic Zend Framework 2 Webshop Application with jQuery Mobile')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+
+
+
+        <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/css/jquerymobil/webshop.min.css" />
+        <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/css/jquerymobil/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+    </head>
+
+
+
+    <style type='text/css'>
+        <!--
+
+        @media only screen {
+            .ui-page {
+                width: 700px !important;
+                margin: 0 auto !important;
+                position: relative !important;
+
+            }
+        }
+        -->
+
+        .ui-footer {
+            padding: 2px !important;
+        }
+
+
+    </style>
+
+    <body>
+
+        <br>
+        <?php
+        $user_session = new Zend\Session\Container('webshop');
+        ?>
+
+        <div data-role="page">
+            <div  data-role="header" ><h1>Basic Zend Framework 2 Webshop Application with jQuery Mobile </h1>
+                <div data-role="navbar">
+                    <ul  >
+                        <li><a href="<?php echo $this->url('webshop/product') ?>">Product list</a></li>  
+
+
+                        <?php if (!empty($user_session->name)): ?> 
+                            <li><a href="<?php echo $this->url('webshop/product', array('action' => 'shoppingCartContent')) ?>">Shopping Cart</a></li>  
+                            <li><a href="<?php echo $this->url('webshop/user', array('action' => 'logout')); ?>"><?php echo $user_session->name; ?>  : Logout</a> </li>
+                        <?php else: ?>
+                            <li><a href="<?php echo $this->url('webshop/user') ?>">Login</a></li>
+                            <li><a href="#">Registration (disabled)</a></li> 
+                        <?php endif; ?> 
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+
+
+
+                <?php echo $this->content; ?>
+            </div>
+            <div data-role="footer">
+                <p> Basic Zend Framework 2 Webshop Application with jQuery Mobile
+                    <br> Try it! Shopper login: test@foo.baz/123  Admin login: admin@foo.baz/ [write me]
+                    <br>
+                    contact: blogbookhu@gmail.com
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </body>
+</html>

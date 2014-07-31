@@ -1,0 +1,9 @@
+﻿
+Download library into vendor folder with Composer
+
+Run command in project library:
+
+php composer.phar self-update
+
+php composer.phar install
+

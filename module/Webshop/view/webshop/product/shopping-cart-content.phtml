@@ -1,0 +1,21 @@
+<h1>Shopping Cart content</h1>
+
+<?php //var_dump($orders); ?>
+
+
+<ul data-role="listview"  data-inset="true">
+
+    <?php foreach ($orders as $item) : ?>
+        <li>
+             <div class="ui-block-a" style="width: 30%;">
+                 <img src="<?php echo $this->basePath(); ?>/../module/Webshop/data/uploads/<?php echo $item->filename; ?>"  style="width:100px;"/>
+             </div>
+            <div class="ui-block-b" style="width: 60%;">
+              Name: <?php echo $item->product_name; ?><br>
+ Quantity: <?php echo $this->escapeHtml($item->qty); ?><br>
+            Price: <?php echo $this->escapeHtml($item->price); ?><br>
+            Total: <?php echo $this->escapeHtml($item->total); ?>
+</div>
+        </li>
+    <?php endforeach; ?>
+</ul>

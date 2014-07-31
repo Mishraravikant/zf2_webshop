@@ -1,0 +1,24 @@
+
+
+
+<ul data-role="listview"  data-inset="true">
+    <?php foreach ($products as $item) : ?>
+        <li>  
+            <a href="<?php echo $this->url('webshop/product', array('action' => 'view'), array('query' => array('productid' => $item->id))); ?>">
+                <img src="<?php echo $this->basePath(); ?>/../module/Webshop/data/uploads/<?php echo $item->filename; ?>"  style="width:100px;"/>
+                <h2>
+                    <?php echo $this->escapeHtml($item->name); ?>
+                </h2>
+                <p>
+                  description:  <?php echo $this->escapeHtml($item->description); ?><br>
+                    price: <?php echo $this->escapeHtml($item->price); ?>
+                </p>
+            </a> 
+        </li>         
+    <?php endforeach; ?>
+</ul>
+
+
+<!--------
+http://www.andrew-kirkpatrick.com/2014/01/add-url-query-parameters-using-view-helper-zend-framework-2/
+------->

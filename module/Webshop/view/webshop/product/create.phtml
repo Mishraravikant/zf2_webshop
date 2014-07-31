@@ -1,0 +1,52 @@
+<section class="product">
+<h2>Termék felvitel</h2>
+<?php if ($this->error): ?>
+<p class="error">
+There were one or more issues with your submission.
+Please correct them as
+indicated below.
+</p>
+<?php endif ?>
+
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url(NULL,
+array('controller'=>'Product', 'action' => 'process')));
+$form->setAttribute('method', 'post');
+echo $this->form()->openTag($form);
+?>
+
+<dl class="zend_form">
+     <dt><?php echo $this->formLabel($form->get('imageupload')); ?></dt>
+     <dd><?php
+echo $this->formElement($form->get('imageupload'));
+echo $this->formElementErrors($form->get('imageupload'));
+?></dd>
+     
+<dt><?php echo $this->formLabel($form->get('name')); ?></dt>
+<dd><?php
+echo $this->formElement($form->get('name'));
+echo $this->formElementErrors($form->get('name'));
+?></dd>
+<dt><?php echo $this->formLabel($form->get('description')); ?>
+</dt>
+<dd><?php
+echo $this->formElement($form->get('description'));
+echo $this->formElementErrors($form->get('description'));
+?></dd>
+<dt><?php echo $this->formLabel($form->get('price'));
+?></dt>
+<dd><?php
+echo $this->formElement($form->get('price'));
+echo $this->formElementErrors($form->get('price'));
+?></dd>
+
+<dd><?php
+echo $this->formElement($form->get('submit'));
+echo $this->formElementErrors($form->get('submit'));
+?></dd>
+</dl>
+
+<?php echo $this->form()->closeTag() ?>
+</section>

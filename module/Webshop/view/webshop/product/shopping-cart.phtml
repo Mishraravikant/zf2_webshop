@@ -1,0 +1,23 @@
+<h1>Shopping Cart</h1>
+
+<h5>Order Details</h5>
+
+<table width="80%" border="1px">
+	<tr>
+		<th> Name</th>
+		<th> Qty</th>
+		<th> Unit Cost</th>
+		<th> Total</th>
+	</tr>
+	<tr>
+		<td> <?php echo $order->getProduct()->name; ?> </td>
+		<td align="center"> <?php echo $order->qty; ?> </td>
+		<td align="center"> <?php echo $order->getProduct()->price; ?> </td>
+		<td align="right"> <?php echo $order->total; ?> </td>
+	</tr>
+	<tr>
+		<td colspan="3" align="right"><strong> Total: </strong> </td>
+		<td align="right"> <?php echo $order->total; ?> </td>
+	</tr>
+</table>
+<br />

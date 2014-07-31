@@ -1,0 +1,53 @@
+
+<?php 
+var_dump($this->loginForm);
+
+
+?>
+<section class="login">
+<h2>Login</h2>
+
+<?php if ($this->error): ?>
+<p class="error">
+    There were one or more isues with your submission. Please correct them as 
+    indicated below.
+</p>
+<?php endif ?>
+
+<?php 
+$form = $this->loginForm;
+//$form->prepare();
+//$form->setAttribute('action', $this->url(NULL, array('controller'=>'User', 'action' => 'login')));
+//$form->setAttribute('method', 'post');
+
+echo $this->form()->openTag($form);
+?>
+<dl class="zend_form">
+
+
+<dt><?php echo $this->formLabel($form->get('username')); ?></dt>
+<dd><?php 
+    echo $this->formElement($form->get('username'));
+    echo $this->formElementErrors($form->get('username'));
+?></dd>
+
+<dt><?php echo $this->formLabel($form->get('password')); ?></dt>
+<dd><?php 
+    echo $this->formElement($form->get('password'));
+    echo $this->formElementErrors($form->get('password'));
+?></dd>
+
+
+<dd><?php 
+    echo $this->formElement($form->get('csrf'));
+    echo $this->formElementErrors($form->get('csrf'));
+?></dd>
+
+<dd><?php 
+    echo $this->formElement($form->get('submit'));
+    echo $this->formElementErrors($form->get('submit'));
+?></dd>
+
+</dl>
+<?php echo $this->form()->closeTag() ?>
+</section>
