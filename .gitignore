@@ -11,3 +11,4 @@ vendor/bin
 /module/Store/data/uploads
 /module/Example/data/uploads
 /module/Example/data/tmpuploads
+/sql_db/*.bak

@@ -1,0 +1,101 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.0
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jul 31, 2014 at 10:24 PM
+-- Server version: 5.5.35
+-- PHP Version: 5.4.23
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `zf2_store`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `price` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `filename`, `name`, `description`, `price`) VALUES
+(31, 'bike.jpg', 'Bike', 'used', '5$'),
+(41, 'bear.jpg', 'Bear', 'used', '5$'),
+(47, 'ball.jpg', 'ball', 'used', '5$');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_orders`
+--
+
+CREATE TABLE `product_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_product_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `total` float(9,2) NOT NULL,
+  `status` enum('new','completed','shipped','cancelled') DEFAULT NULL,
+  `stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `product_orders`
+--
+
+INSERT INTO `product_orders` (`id`, `store_product_id`, `qty`, `total`, `status`, `stamp`, `user_id`, `name`, `email`) VALUES
+(10, 22, 1, 10.00, 'new', '2014-07-29 11:15:13', 3, 'test', 'test@foo.baz'),
+(12, 31, 2, 10.00, 'new', '2014-07-31 21:11:19', 3, 'test', 'test@foo.baz'),
+(13, 41, 3, 15.00, 'new', '2014-07-31 21:11:30', 3, 'test', 'test@foo.baz');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `role`, `password`) VALUES
+(2, 'admin', 'admin@foo.baz', 'admin', '202cb962ac59075b964b07152d234b70'),
+(3, 'test', 'test@foo.baz', 'user', '202cb962ac59075b964b07152d234b70');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
