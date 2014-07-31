@@ -15,8 +15,7 @@ If you are interested in admin section write me: blogbookhu@gmail.com
 
 Installation
 ------------
-
-Using Composer (recommended)
+Using Composer 
 ----------------------------
 
 Run command in project library:
