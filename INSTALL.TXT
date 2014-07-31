@@ -1,5 +1,4 @@
 ﻿
-Download library into vendor folder with Composer
 
 Run command in project library:
 

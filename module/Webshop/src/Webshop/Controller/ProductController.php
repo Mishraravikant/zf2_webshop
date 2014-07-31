@@ -171,7 +171,7 @@ class ProductController extends AbstractActionController {
 
     //message of admin part
     public function messageAction() {
-        $message = "If you are interested in admin section write me: contact: blogbookhu@gmail.com";
+        $message = "If you are interested in admin section write me. contact: blogbookhu@gmail.com";
         //return false;
 
         $viewModel = new ViewModel(
