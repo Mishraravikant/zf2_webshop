@@ -23,3 +23,8 @@ Run command in project library:
 php composer.phar self-update
 
 php composer.phar install
+
+
+Demo
+----------------------------
+http://85.118.134.246/zf2_webshop/public/webshop 
