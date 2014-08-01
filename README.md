@@ -28,4 +28,4 @@ php composer.phar install
 
 Demo
 ----------------------------
-http://85.118.134.246/zf2_webshop/public/webshop 
+http://blogbook.hu/zf2_webshop/public/webshop
